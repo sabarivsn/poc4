@@ -1,14 +1,24 @@
 package com.poc4.sample;
 
 import com.poc1.sample.Employee;
-import org.junit.Assert;
+import org.testng.ITestNGListener;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
 
 public class Runner {
     public static void main(String[] args) {
-        Employee employee = new Employee();
-        employee.name = "Sabari";
-        employee.details = "none";
-        System.out.println(employee.name + " : " + employee.details);
-        Assert.fail("Intentional failure");
+
+        Thread runnerThread = new Thread(new Runner().new TestRunnable());
+        runnerThread.run();
+    }
+
+    private class TestRunnable implements Runnable {
+        public void run() {
+            TestListenerAdapter adapter = new TestListenerAdapter();
+            TestNG testng = new TestNG();
+            testng.setTestClasses(new Class[] {CucumberTestRunner.class});
+            testng.addListener((ITestNGListener)adapter);
+            testng.run();
+        }
     }
 }
