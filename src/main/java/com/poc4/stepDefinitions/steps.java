@@ -23,6 +23,6 @@ public class steps {
     @Then("^it should fail$")
     public void it_should_fail() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        Assert.fail("Fails is intentional");
+
     }
 }
