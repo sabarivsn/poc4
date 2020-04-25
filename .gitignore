@@ -3,3 +3,5 @@ out/
 .gradle/
 .settings/
 build/
+target/
+test-output/
