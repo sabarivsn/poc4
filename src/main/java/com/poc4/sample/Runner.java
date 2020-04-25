@@ -1,6 +1,7 @@
 package com.poc4.sample;
 
 import com.poc1.sample.Employee;
+import org.junit.Assert;
 
 public class Runner {
     public static void main(String[] args) {
@@ -8,5 +9,6 @@ public class Runner {
         employee.name = "Sabari";
         employee.details = "none";
         System.out.println(employee.name + " : " + employee.details);
+        Assert.fail("Intentional failure");
     }
 }
