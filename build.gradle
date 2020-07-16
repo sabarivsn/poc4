@@ -16,11 +16,13 @@ repositories {
 mainClassName = 'com.poc4.sample.Runner'
 
 dependencies {
-    compile fileTree(dir: '../build/libs', includes: ['poc1-1.0-SNAPSHOT.jar'])
     compile group: 'org.testng', name: 'testng', version: '6.14.3'
     compile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.6'
     compile group: 'info.cukes', name: 'cucumber-jvm-deps', version: '1.0.5'
     compile group: 'info.cukes', name: 'cucumber-java', version: '1.2.6'
+    compile group: 'info.cukes', name: 'cucumber-picocontainer', version: '1.2.5'
+    compile group: 'com.aventstack', name: 'extentreports', version: '3.1.1'
+    compile group: 'com.vimalselvam', name: 'cucumber-extentsreport', version: '3.1.1'
 }
 
 task libs(type : Sync){

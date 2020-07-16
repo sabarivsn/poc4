@@ -1,5 +1,6 @@
 package com.poc4.sample;
 
+import com.vimalselvam.cucumber.listener.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -8,8 +9,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
-@CucumberOptions(features="resources/features",glue= {"com.poc4.stepDefinitions"},
-        plugin = {"pretty","json:target/cucumber.json","html:target/cucumber"})
+@CucumberOptions(features="classpath:features",glue= {"com.poc4.stepDefinitions"},
+        plugin = {"pretty","json:target/cucumber.json","html:target/cucumber","com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:target/cucumber.html"})
 
 public class CucumberTestRunner {
 
@@ -32,6 +33,7 @@ public class CucumberTestRunner {
 
     @AfterClass
     public void clean() {
+        Reporter.loadXMLConfig("src/extent-config.xml");
         runner.finish();
     }
 }
